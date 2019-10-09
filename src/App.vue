@@ -1,17 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ul>
+      <li v-for="context in contexts" v-bind:key="context.id">{{context.duckColor.name}}</li>
+    </ul>
+    <input v-model="del">
+    <button v-on:click="deleteContext()">Delete</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import axios from 'axios'
 
 export default {
   name: 'app',
-  components: {
-    HelloWorld
+  mounted() {
+    this.loadContent()
+  },
+  data: () => {
+    return {
+      del: "",
+      contexts: []
+    }
+  },
+  methods: {
+    loadContent: function() {
+      axios.get('https://rubberduckshop.azurewebsites.net/api/duck').then(response => (this.contexts = response.data))
+    },
+    deleteContext: function() {
+      axios.delete('https://rubberduckshop.azurewebsites.net/api/duck/' + this.del)
+    }
   }
 }
 </script>
