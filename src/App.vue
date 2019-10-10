@@ -1,25 +1,31 @@
 <template>
   <div id="app">
-    <ul>
+    <header-comp></header-comp>
+    <!--<ul>
       <li v-for="context in contexts" v-bind:key="context.id">{{context}}</li>
     </ul>
     <button v-on:click="loadContext()">Load</button>
     <input v-model="del">
     <button v-on:click="deleteContext()">Delete</button>
     <button v-on:click="addContext()">Add</button>
-    <button v-on:click="editContext()">Edit</button>
+    <button v-on:click="editContext()">Edit</button>-->
     <router-view/>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import HeaderComp from "@/components/HeaderComp";
 
 export default {
   name: 'app',
+  components: {HeaderComp},
   //mounted() {
   //  this.loadContent()
   //},
+  component: {
+    HeaderComp
+  },
   data: () => {
     return {
       del: "",

@@ -1,11 +1,20 @@
 <template>
     <div>
-        <h1 style="align-self: center">Admin</h1>
+        <h1 id="title">Admin</h1>
         <p>
-            <button>Ducks</button>
-            <button>Colors</button>
-            <button>Costumes</button>
-            <button>Patterns</button>
+            <router-link to="/duckspage">
+                <button>Ducks</button>
+            </router-link>
+            <router-link to="/colorspage">
+                <button >Colors</button>
+            </router-link>
+            <router-link to="/costumespage">
+                <button>Costumes</button>
+            </router-link>
+            <router-link to="/patternspage">
+                <button>Patterns</button>
+            </router-link>
+
         </p>
     </div>
 </template>
@@ -18,13 +27,22 @@
 
 <style scoped>
     button {
-        background-color: aqua;
-        border-color: black;
+        background-color: black;
+        border-color: aqua;
         border-width: 1px;
-        width: 300px;
-        height: 150px;
+        border-radius: 25px 25px 25px 25px;
+        width: 150px;
+        height: 50px;
+        margin-right: 15px;
+        margin-left: 15px;
+        -webkit-text-fill-color: aqua;
     }
     button:hover {
-        background-color: aquamarine;
+        background-color: aqua;
+        -webkit-text-fill-color: black;
+    }
+    #title {
+        align-self: center;
+        -webkit-text-fill-color: aqua;
     }
 </style>
