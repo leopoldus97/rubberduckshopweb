@@ -8,6 +8,7 @@
     <button v-on:click="deleteContext()">Delete</button>
     <button v-on:click="addContext()">Add</button>
     <button v-on:click="editContext()">Edit</button>
+    <router-view/>
   </div>
 </template>
 

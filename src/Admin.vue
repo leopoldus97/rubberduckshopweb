@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <header>
-
+            <HeaderComp></HeaderComp>
         </header>
         <body>
 
@@ -13,13 +13,14 @@
 </template>
 
 <script>
-    import axios from 'axios'
+    import axios from 'axios';
     import HeaderComp from "@/components/HeaderComp";
 
     export default {
         name: "Admin",
+        components: {HeaderComp},
         component: {
-            
+            HeaderComp
         },
         data: () => {
             return {
