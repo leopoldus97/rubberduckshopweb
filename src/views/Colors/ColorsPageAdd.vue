@@ -1,10 +1,8 @@
 <template>
-    <div>
+    <div style="text-align: center">
         <div class="buttonBox">
-            Name: <input v-model="colorName" class="textInp">
-                <router-link to="/colorspage">
+            Name: <input v-model="colorName" class="textInp" placeholder="Name" type="text">
                     <button v-on:click="addColor" class="btnAdd">Add</button>
-                </router-link>
         </div>
     </div>
 </template>
@@ -14,16 +12,13 @@
 
     export default {
         name: "ColorsPageAdd",
-        data: () => {
-            return {
-                colorName: {
-                    "name": ""
-                }
-            }
-        },
+        data: () => ({
+            colorName: ''
+        }),
         methods: {
             addColor: function () {
-                axios.post('https://kleasv.azurewebsites.net/api/color', this.colorName)
+                axios.post('https://kleasv.azurewebsites.net/api/color', this.colorName);
+                this.$router.replace("/colorspage")
             }
         }
     }
@@ -31,20 +26,26 @@
 
 <style scoped>
     .buttonBox {
-        border: 1px aqua;
-        width: 400px;
-        height: 200px;
-        align-self: center;
+        border: 1px aqua solid;
+        width: 40%;
+        height: 30%;
         fill: aqua;
         text-align: center;
         -webkit-text-fill-color: aqua;
+        margin-top: 10%;
+        padding: 100px 20px 100px 20px;
+        display: inline-block;
+    }
+    button:hover {
+        background-color: aqua;
+        -webkit-text-fill-color: black;
     }
     .textInp {
         border-radius: 25px 25px 25px 25px;
         margin-left: 15px;
         align-self: center;
-        width: 200px;
-        height: 50px;
+        width: 300px;
+        height: 30px;
         -webkit-text-fill-color: black;
     }
     .btnAdd {
@@ -53,7 +54,7 @@
         border-width: 1px;
         border-radius: 25px 25px 25px 25px;
         width: 150px;
-        height: 50px;
+        height: 30px;
         margin-right: 15px;
         margin-left: 15px;
         -webkit-text-fill-color: aqua;

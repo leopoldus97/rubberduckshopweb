@@ -1,10 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import ColorsPage from './Colors/ColorsPage'
-import ColorsPageAdd from './Colors/ColorsPageAdd'
-import CostumesPage from "@/Costumes/CostumesPage";
-import PatternsPage from "@/Patterns/PatternsPage";
-import DucksPage from "@/Ducks/DucksPage";
+import ColorsPage from './views/Colors/ColorsPage';
+import ColorsPageAdd from './views/Colors/ColorsPageAdd';
+import ColorsPageUpdate from "@/views/Colors/ColorsPageUpdate";
+import CostumesPage from "@/views/Costumes/CostumesPage";
+import CostumesPageAdd from "@/views/Costumes/CostumesPageAdd";
+import CostumesPageUpdate from "@/views/Costumes/CostumesPageUpdate";
+import PatternsPage from "@/views/Patterns/PatternsPage";
+import PatternsPageAdd from "@/views/Patterns/PatternsPageAdd";
+import PatternsPageUpdate from "@/views/Patterns/PatternsPageUpdate";
+import DucksPage from "@/views/Ducks/DucksPage";
+import DucksPageAdd from "@/views/Ducks/DucksPageAdd";
+import DucksPageUpdate from "@/views/Ducks/DucksPageUpdate";
 import Admin from "@/Admin";
 
 Vue.use(Router)
@@ -24,9 +31,24 @@ export default new Router({
             component: ColorsPageAdd
         },
         {
+            path: '/colorspageupdate',
+            name: 'colorspageupdate',
+            component: ColorsPageUpdate
+        },
+        {
             path: '/costumespage',
             name: 'costumespage',
             component: CostumesPage
+        },
+        {
+            path: '/costumespageadd',
+            name: 'costumespageadd',
+            component: CostumesPageAdd
+        },
+        {
+            path: '/costumespageupdate',
+            name: 'costumespageupdate',
+            component: CostumesPageUpdate
         },
         {
             path: '/patternspage',
@@ -34,9 +56,29 @@ export default new Router({
             component: PatternsPage
         },
         {
+            path: '/patternspageadd',
+            name: 'patternspageadd',
+            component: PatternsPageAdd
+        },
+        {
+            path: '/patternspageupdate',
+            name: 'patternspageupdate',
+            component: PatternsPageUpdate
+        },
+        {
             path: '/duckspage',
             name: 'duckspage',
             component: DucksPage
+        },
+        {
+            path: '/duckspageadd',
+            name: 'duckspageadd',
+            component: DucksPageAdd
+        },
+        {
+            path: '/duckspageupdate',
+            name: 'duckspageupdate',
+            component: DucksPageUpdate
         },
         {
             path: '/admin',

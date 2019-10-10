@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <h1 id="title">Admin</h1>
         <p>
             <router-link to="/duckspage">
@@ -44,5 +44,8 @@
     #title {
         align-self: center;
         -webkit-text-fill-color: aqua;
+    }
+    .container {
+        border-bottom: 1px aqua solid;
     }
 </style>
