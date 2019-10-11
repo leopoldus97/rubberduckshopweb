@@ -1,7 +1,7 @@
 <template>
     <div style="text-align: center">
         <div class="buttonBox">
-            Name: <input v-model="colorName" class="textInp" placeholder="Name" type="text">
+            Name: <input v-model="color.name" class="textInp" placeholder="Name" type="text">
             <button v-on:click="editColor" class="btnAdd">Edit</button>
         </div>
     </div>
@@ -9,13 +9,14 @@
 
 <script>
     import axios from 'axios';
+
     export default {
         mounted() {
-            //this.color = this.getColor(this.$route.params.colorId)
+            this.color = this.getColor(this.$route.params.colorId)
         },
         name: "ColorsPageUpdate",
         data: () => ({
-                color: ''
+                color: {}
         }),
         methods: {
             getColor: function (id) {
@@ -24,9 +25,9 @@
             editColor: function () {
                 axios.put('https://kleasv.azurewebsites.net/api/color/' + this.color.id , { id: this.color.id, name: this.color.name }).then(() =>
                 {
-                    alert("The color with id " + this.color.id + " has been changed!")
+                    alert("The color with id " + this.color.id + " has been changed!"),
+                    this.$router.replace("/colorspage")
                 });
-                this.$router.replace("/colorspage")
             }
         }
     }

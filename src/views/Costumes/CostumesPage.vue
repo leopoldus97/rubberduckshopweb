@@ -49,12 +49,12 @@
             },
             deleteCostume: function (id) {
                 if (confirm("Do you want to delete product with " + id)) {
-                    axios.delete('https://rubberduckshop.azurewebsites.net/api/costume/' + id).then(() => {alert("The item with id: " + id + " deleted!")});
+                    axios.delete('https://kleasv.azurewebsites.net/api/costume/' + id).then(() => {alert("The item with id: " + id + " deleted!")});
                     Vue.delete(this.colors, this.index);
                 }
             },
             updateCostume: function(id) {
-                axios.put('https://rubberduckshop.azurewebsites.net/api/costume/' + id, this.costumeName)
+                axios.put('https://kleasv.azurewebsites.net/api/costume/' + id, this.costumeName)
             }
         }
     }

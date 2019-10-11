@@ -17,8 +17,7 @@
         }),
         methods: {
             addCostume: function () {
-                axios.post('https://kleasv.azurewebsites.net/api/costume', this.costumeName);
-                this.$router.replace("/costumespage")
+                axios.post('https://kleasv.azurewebsites.net/api/costume', { name: this.costumeName }).then(() => this.$router.replace("/costumespage"));
             }
         }
     }

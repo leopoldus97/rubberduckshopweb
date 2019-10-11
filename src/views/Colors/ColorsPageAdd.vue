@@ -12,13 +12,17 @@
 
     export default {
         name: "ColorsPageAdd",
+        mounted() {
+            this.color = this.getColor(this.$route.params.colorId)
+        },
         data: () => ({
             colorName: ''
         }),
         methods: {
             addColor: function () {
-                axios.post('https://kleasv.azurewebsites.net/api/color', this.colorName);
-                this.$router.replace("/colorspage")
+                axios.post('https://kleasv.azurewebsites.net/api/color', { name: this.colorName }).then(() => {
+                    this.$router.replace("/colorspage")
+                })
             }
         }
     }

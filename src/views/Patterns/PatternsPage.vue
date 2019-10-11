@@ -19,7 +19,7 @@
                             </router-link>
                         </div>
                         <div class="patternButtons">
-                            <i class="fas fa-backspace" v-on:click="deletePattern(pattern.id)"></i>
+                            <i class="fas fa-backspace" v-on:click="deletePattern(index, pattern.id)"></i>
                         </div>
                     </div>
                 </li>
@@ -47,14 +47,14 @@
             loadPatterns:  function() {
                 axios.get('https://kleasv.azurewebsites.net/api/pattern').then(response => this.patterns = response.data)
             },
-            deletePattern: function (id) {
+            deletePattern: function (index, id) {
                 if (confirm("Do you want to delete product with " + id)) {
-                    axios.delete('https://rubberduckshop.azurewebsites.net/api/pattern/' + id).then(() => {alert("The item with id: " + id + " deleted!")});
-                    Vue.delete(this.patterns, this.index);
+                    axios.delete('https://kleasv.azurewebsites.net/api/pattern/' + id).then(() => {alert("The item with id: " + id + " deleted!")});
+                    Vue.delete(this.patterns, index);
                 }
             },
             updatePattern: function(id) {
-                axios.put('https://rubberduckshop.azurewebsites.net/api/pattern/' + id, this.patternName)
+                axios.put('https://kleasv.azurewebsites.net/api/pattern/' + id, this.patternName)
             }
         }
     }

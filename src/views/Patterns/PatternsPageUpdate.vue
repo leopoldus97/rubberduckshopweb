@@ -11,7 +11,7 @@
     import axios from 'axios';
     export default {
         mounted() {
-            //this.pattern = this.getPattern(this.$route.params.patternId)
+            this.pattern = this.getPattern(this.$route.params.patternId)
         },
         name: "PatternsPageUpdate",
         data: () => ({
@@ -24,9 +24,9 @@
             editPattern: function () {
                 axios.put('https://kleasv.azurewebsites.net/api/pattern/' + this.pattern.id , { id: this.pattern.id, name: this.pattern.name }).then(() =>
                 {
-                    alert("The pattern with id " + this.pattern.id + " has been changed!")
+                    alert("The pattern with id " + this.pattern.id + " has been changed!");
+                    this.$router.replace("/patternspage")
                 });
-                this.$router.replace("/patternspage")
             }
         }
     }

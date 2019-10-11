@@ -31,7 +31,7 @@ export default new Router({
             component: ColorsPageAdd
         },
         {
-            path: '/colorspageupdate',
+            path: '/colorspageupdate/:colorId',
             name: 'colorspageupdate',
             component: ColorsPageUpdate
         },
@@ -46,7 +46,7 @@ export default new Router({
             component: CostumesPageAdd
         },
         {
-            path: '/costumespageupdate',
+            path: '/costumespageupdate/:costumeId',
             name: 'costumespageupdate',
             component: CostumesPageUpdate
         },
@@ -61,7 +61,7 @@ export default new Router({
             component: PatternsPageAdd
         },
         {
-            path: '/patternspageupdate',
+            path: '/patternspageupdate/:patternId',
             name: 'patternspageupdate',
             component: PatternsPageUpdate
         },
@@ -76,7 +76,7 @@ export default new Router({
             component: DucksPageAdd
         },
         {
-            path: '/duckspageupdate',
+            path: '/duckspageupdate/:duckId',
             name: 'duckspageupdate',
             component: DucksPageUpdate
         },

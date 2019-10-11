@@ -17,8 +17,7 @@
         }),
         methods: {
             addDuck: function () {
-                axios.post('https://kleasv.azurewebsites.net/api/duck', this.duckName);
-                this.$router.replace("/duckspage")
+                axios.post('https://kleasv.azurewebsites.net/api/duck', { name: this.duckName }).then(() => this.$router.replace("/duckspage"));
             }
         }
     }

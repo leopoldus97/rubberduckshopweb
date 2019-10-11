@@ -1,8 +1,8 @@
 <template>
     <div style="text-align: center">
         <div class="buttonBox">
-            Name: <input v-model="costumeName" class="textInp" placeholder="Name" type="text">
-            <button v-on:click="editCostumer" class="btnAdd">Edit</button>
+            Name: <input v-model="this.costume.name" class="textInp" placeholder="Name" type="text">
+            <button v-on:click="editCostume" class="btnAdd">Edit</button>
         </div>
     </div>
 </template>
@@ -11,11 +11,11 @@
     import axios from 'axios';
     export default {
         mounted() {
-            //this.costume = this.getCostume(this.$route.params.costumeId)
+            this.costume = this.getCostume(this.$route.params.costumeId)
         },
         name: "CostumesPageUpdate",
         data: () => ({
-            costume: ''
+            costume: {}
         }),
         methods: {
             getCostume: function (id) {
@@ -24,9 +24,9 @@
             editCostume: function () {
                 axios.put('https://kleasv.azurewebsites.net/api/costume/' + this.costume.id , { id: this.costume.id, name: this.costume.name }).then(() =>
                 {
-                    alert("The costume with id " + this.costume.id + " has been changed!")
+                    alert("The costume with id " + this.costume.id + " has been changed!");
+                    this.$router.replace("/costumespage")
                 });
-                this.$router.replace("/costumespage")
             }
         }
     }

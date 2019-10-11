@@ -15,11 +15,12 @@
                             </div>
                                 <div class="colorButtons">
                                     <router-link :to="`/colorspageupdate/${color.id}`">
+                                        <!--<router-link to="/colorspageupdate">-->
                                         <i class="fas fa-pencil-alt" v-on:click="updateColor(color.id)"></i>
                                     </router-link>
                                 </div>
                                 <div class="colorButtons">
-                                    <i class="fas fa-backspace" v-on:click="deleteColor(color.id)"></i>
+                                    <i class="fas fa-backspace" v-on:click="deleteColor(index, color.id)"></i>
                                 </div>
                             </div>
                     </li>
@@ -47,14 +48,17 @@
             loadColors:  function() {
                 axios.get('https://kleasv.azurewebsites.net/api/color').then(response => this.colors = response.data)
             },
-            deleteColor: function (id) {
+            deleteColor: function (index, id) {
                 if (confirm("Do you want to delete product with " + id)) {
-                    axios.delete('https://rubberduckshop.azurewebsites.net/api/color/' + id).then(() => {alert("The item with id: " + id + " deleted!")});
-                    Vue.delete(this.colors, this.index);
+                    axios.delete('https://kleasv.azurewebsites.net/api/color/' + id).then(() =>
+                    {
+                        alert("The item with id: " + id + " deleted!")
+                    });
+                    Vue.delete(this.colors, index);
                 }
             },
             updateColor: function(id) {
-                axios.put('https://rubberduckshop.azurewebsites.net/api/color/' + id, this.colorName)
+                axios.put('https://kleasv.azurewebsites.net/api/color/' + id, this.colorName)
             }
         }
     }

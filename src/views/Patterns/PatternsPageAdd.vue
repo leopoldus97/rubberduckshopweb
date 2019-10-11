@@ -16,9 +16,8 @@
             patternName: ''
         }),
         methods: {
-            addColor: function () {
-                axios.post('https://kleasv.azurewebsites.net/api/pattern', this.patternName);
-                this.$router.replace("/patternspage")
+            addPattern: function () {
+                axios.post('https://kleasv.azurewebsites.net/api/pattern', { name: this.patternName }).then(() => this.$router.replace("/patternspage"));
             }
         }
     }

@@ -1,7 +1,7 @@
 <template>
     <div style="text-align: center">
         <div class="buttonBox">
-            Name: <input v-model="duckName" class="textInp" placeholder="Name" type="text">
+            Name: <input v-model="duck.color.name" class="textInp" placeholder="Name" type="text">
             <button v-on:click="editDuck" class="btnAdd">Edit</button>
         </div>
     </div>
@@ -11,7 +11,7 @@
     import axios from 'axios';
     export default {
         mounted() {
-            //this.duck = this.getDucks(this.$route.params.duckId)
+            this.duck = this.getDucks(this.$route.params.duckId)
         },
         name: "DucksPageUpdate",
         data: () => ({
@@ -24,9 +24,9 @@
             editDuck: function () {
                 axios.put('https://kleasv.azurewebsites.net/api/duck/' + this.duck.id , { id: this.duck.id, name: this.duck.color }).then(() =>
                 {
-                    alert("The duck with id " + this.duck.id + " has been changed!")
+                    alert("The duck with id " + this.duck.id + " has been changed!");
+                    this.$router.replace("/duckspage")
                 });
-                this.$router.replace("/duckspage")
             }
         }
     }
